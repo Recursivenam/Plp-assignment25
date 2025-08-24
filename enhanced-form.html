@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header, main, footer {
+            margin-bottom: 20px;
+        }
+        h1, h2 {
+            color: #2c3e50;
+        }
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input:invalid {
+            border-color: #e74c3c;
+        }
+        input:valid {
+            border-color: #2ecc71;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .error {
+            color: #e74c3c;
+            font-size: 0.9em;
+            display: none;
+        }
+        .media-container {
+            margin: 20px 0;
+            text-align: center;
+        }
+        img, video {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Event Registration Form</h1>
+        <p>Welcome to our annual tech conference! Please fill out the form below to register.</p>
+    </header>
+    <main>
+        <section aria-labelledby="form-heading">
+            <h2 id="form-heading">Registration Details</h2>
+            <form id="registration-form" action="/submit" method="post" novalidate>
+                <fieldset>
+                    <legend>Personal Information</legend>
+                    <label for="full-name">Full Name <span aria-hidden="true">*</span></label>
+                    <input type="text" id="full-name" name="full-name" placeholder="Enter your full name" required pattern="[A-Za-z\s]{2,50}" autocomplete="name" aria-describedby="name-error">
+                    <span id="name-error" class="error">Please enter a valid name (letters and spaces only, 2-50 characters).</span>
+                    <label for="email">Email Address <span aria-hidden="true">*</span></label>
+                    <input type="email" id="email" name="email" placeholder="example@domain.com" required autocomplete="email" aria-describedby="email-error">
+                    <span id="email-error" class="error">Please enter a valid email address.</span>
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+1234567890" pattern="\+?[1-9]\d{1,14}" autocomplete="tel" aria-describedby="phone-error">
+                    <span id="phone-error" class="error">Please enter a valid phone number.</span>
+                </fieldset>
+                <fieldset>
+                    <legend>Event Preferences</legend>
+                    <label for="event-date">Preferred Event Date <span aria-hidden="true">*</span></label>
+                    <input type="date" id="event-date" name="event-date" required min="2025-09-01" max="2025-12-31" aria-describedby="date-error">
+                    <span id="date-error" class="error">Please select a date between September 1, 2025, and December
